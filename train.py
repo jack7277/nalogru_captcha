@@ -94,7 +94,7 @@ for i in range(20):
         X_aug_train = X_aug
 print("Конец подготовка ауг")
 
-captcha = Input(shape=(100, 200, channels))
+captcha = Input(shape=(pic_h, pic_w, channels))
 x = Conv2D(32, (5, 5), padding='valid', activation='relu')(captcha)
 x = MaxPooling2D((2, 2), padding='same')(x)
 x = Conv2D(64, (3, 3), padding='same', activation='relu')(x)
