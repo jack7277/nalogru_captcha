@@ -1,5 +1,6 @@
 import glob
 import os
+import sys
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 from multiprocessing import freeze_support
 
@@ -9,6 +10,7 @@ from keras.models import load_model
 
 
 model_path = r'c:\prj\nalogru-captcha\Models\model.h5'
+unk_path = r'c:\prj\nalogru-unk-pics'
 DIR = r'c:\prj\png-captcha'
 
 channels = 1
@@ -40,10 +42,14 @@ def solve(file):
     return pred
 
 
-file = r'c:\prj\nalog-captcha\027718.jpg'
-pred = solve(file)
-print(f'Распознание файла: {file}', pred)
-
+# file = r'c:\prj\nalog-captcha\027718.jpg'
+file = r'c:\prj\nalogru-unk-pics\35181.jpg'
+file = r'c:\prj\nalogru-unk-pics\62316.jpg'
+file = r'c:\prj\nalogru-unk-pics\64858.jpg'  # 642858
+file = r'c:\prj\nalogru-unk-pics\73469C3C5FEA8F16B59DE8AF8C2B85D98F7B7A06D7D6E0796E12E613B5E09018.jpg'
+# pred = solve(file)
+# print(f'Распознание файла: {file}', pred)
+# sys.exit()
 
 # check accuracy
 # good = 0
@@ -64,4 +70,15 @@ print(f'Распознание файла: {file}', pred)
 # print(f'Total: {good + bad}')
 # print(f'Good: {good}')
 # print(f'Bad: {bad}')
+
+# recognize
+# unk_files = glob.glob(os.path.join(unk_path, '*.jpg'))
+# for unk_file in unk_files:
+#     print(unk_file)
+#     pred = solve(unk_file)
+#     new_full_name = os.path.join(unk_path, f'{pred}.jpg')
+#     try:
+#         os.rename(unk_file, new_full_name)
+#     except Exception as e:
+#         print(str(e))
 
