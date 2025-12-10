@@ -10,7 +10,7 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dropout, BatchNormalizat
 from keras.optimizers import Adam
 from numpy.random import default_rng
 
-train_dir = r'c:\prj\nalog-captcha'
+train_dir = r'c:\prj\nalog-captcha\png'  # каталог с png для тренировки, получается послее edges.py
 pic_h = 100
 pic_w = 200
 channels = 1
